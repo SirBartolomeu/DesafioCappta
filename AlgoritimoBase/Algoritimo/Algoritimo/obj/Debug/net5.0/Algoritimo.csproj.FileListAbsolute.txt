@@ -1,0 +1,16 @@
+C:\Users\PC\Desktop\Desafio-Cappta\DesafioCappta\AlgoritimoBase\Algoritimo\Algoritimo\bin\Debug\net5.0\Algoritimo.exe
+C:\Users\PC\Desktop\Desafio-Cappta\DesafioCappta\AlgoritimoBase\Algoritimo\Algoritimo\bin\Debug\net5.0\Algoritimo.deps.json
+C:\Users\PC\Desktop\Desafio-Cappta\DesafioCappta\AlgoritimoBase\Algoritimo\Algoritimo\bin\Debug\net5.0\Algoritimo.runtimeconfig.json
+C:\Users\PC\Desktop\Desafio-Cappta\DesafioCappta\AlgoritimoBase\Algoritimo\Algoritimo\bin\Debug\net5.0\Algoritimo.runtimeconfig.dev.json
+C:\Users\PC\Desktop\Desafio-Cappta\DesafioCappta\AlgoritimoBase\Algoritimo\Algoritimo\bin\Debug\net5.0\Algoritimo.dll
+C:\Users\PC\Desktop\Desafio-Cappta\DesafioCappta\AlgoritimoBase\Algoritimo\Algoritimo\bin\Debug\net5.0\ref\Algoritimo.dll
+C:\Users\PC\Desktop\Desafio-Cappta\DesafioCappta\AlgoritimoBase\Algoritimo\Algoritimo\bin\Debug\net5.0\Algoritimo.pdb
+C:\Users\PC\Desktop\Desafio-Cappta\DesafioCappta\AlgoritimoBase\Algoritimo\Algoritimo\obj\Debug\net5.0\Algoritimo.csprojAssemblyReference.cache
+C:\Users\PC\Desktop\Desafio-Cappta\DesafioCappta\AlgoritimoBase\Algoritimo\Algoritimo\obj\Debug\net5.0\Algoritimo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PC\Desktop\Desafio-Cappta\DesafioCappta\AlgoritimoBase\Algoritimo\Algoritimo\obj\Debug\net5.0\Algoritimo.AssemblyInfoInputs.cache
+C:\Users\PC\Desktop\Desafio-Cappta\DesafioCappta\AlgoritimoBase\Algoritimo\Algoritimo\obj\Debug\net5.0\Algoritimo.AssemblyInfo.cs
+C:\Users\PC\Desktop\Desafio-Cappta\DesafioCappta\AlgoritimoBase\Algoritimo\Algoritimo\obj\Debug\net5.0\Algoritimo.csproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\Desafio-Cappta\DesafioCappta\AlgoritimoBase\Algoritimo\Algoritimo\obj\Debug\net5.0\Algoritimo.dll
+C:\Users\PC\Desktop\Desafio-Cappta\DesafioCappta\AlgoritimoBase\Algoritimo\Algoritimo\obj\Debug\net5.0\ref\Algoritimo.dll
+C:\Users\PC\Desktop\Desafio-Cappta\DesafioCappta\AlgoritimoBase\Algoritimo\Algoritimo\obj\Debug\net5.0\Algoritimo.pdb
+C:\Users\PC\Desktop\Desafio-Cappta\DesafioCappta\AlgoritimoBase\Algoritimo\Algoritimo\obj\Debug\net5.0\Algoritimo.genruntimeconfig.cache

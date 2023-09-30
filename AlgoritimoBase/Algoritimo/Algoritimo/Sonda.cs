@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Algoritimo
 {
@@ -16,21 +12,72 @@ namespace Algoritimo
 
         public string direcao;
 
-        public Sonda(int posicaoX, int posicaoY, int limiteX, int limiteY, string direcao)
+        public Sonda(string localizacaoInicial, int planaltoX, int planaltoY)
         {
-            this.posicaoX = posicaoX;
-            this.posicaoY = posicaoY;
-            this.limiteX = limiteX;
-            this.limiteY = limiteY;
-            this.direcao = direcao;
+            string[] str = localizacaoInicial.Split(" ");
+            posicaoX = Int32.Parse(str[0]);
+            posicaoY = Int32.Parse(str[1]);
+            direcao = str[2];
+
+            //TO-DO: fazer verificação tamanho do planalto ao movimentar-se a sonda
+            limiteX = planaltoX;
+            limiteY = planaltoY;
         }
 
-        public void VirarEsquerda() { }
+        public void Girar(string sentido)
+        {
+            switch (direcao)
+            {
+                case "N":
+                    direcao = (sentido == "L") ? "W" : "E";
+                    break;
+                case "S":
+                    direcao = (sentido == "L") ? "E" : "W";
+                    break;
+                case "E":
+                    direcao = (sentido == "L") ? "N" : "S";
+                    break;
+                case "W":
+                    direcao = (sentido == "L") ? "S" : "N";
+                    break;
+            }
+        }
 
-        public void VirarDireita() { }
+        public void Mover()
+        {
+            switch (direcao)
+            {
+                case "N":
+                    posicaoY++;
+                    break;
+                case "S":
+                    posicaoY--;
+                    break;
+                case "E":
+                    posicaoX++;
+                    break;
+                case "W":
+                    posicaoX--;
+                    break;
+            }
+        }
 
-        public void Mover() { }
+        public void ExecutarComandos(string strComandos)
+        {
+            char[] comandos = strComandos.ToCharArray();
 
+            for (int i = 0; i < comandos.Length; i++)
+            {
 
+                if (comandos[i] != 'M')
+                {
+                    Girar(comandos[i].ToString());
+                }
+                else
+                {
+                    Mover();
+                }
+            }
+        }
     }
 }
