@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Algoritimo.Interfaces
 {
-    public interface IComando
+    public interface IValidador
     {
-        public void Executar();
 
+        public bool ValidaPlanalto();
+        public bool ValidaPosicaoSonda();
+        public bool ValidaComandosSonda();
     }
 }

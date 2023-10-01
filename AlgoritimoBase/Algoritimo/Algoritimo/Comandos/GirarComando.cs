@@ -8,16 +8,12 @@ using System.Threading.Tasks;
 namespace Algoritimo.Comandos
 {
     public class GirarComando : IGirarComando
-    {
-          
- 
+    {          
         public string Sentido { get; private set; }
 
         public GirarComando(string sentido)
-        {
-            
+        {          
             Sentido = sentido;
-
         }
 
         public string Executar(string direcao)
@@ -37,6 +33,7 @@ namespace Algoritimo.Comandos
                     direcao = (Sentido == "L") ? "S" : "N";
                     break;
             }
+
             return direcao;
         }
     }

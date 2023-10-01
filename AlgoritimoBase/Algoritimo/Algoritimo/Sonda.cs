@@ -1,5 +1,5 @@
-﻿using Algoritimo.Comandos;
-using Algoritimo.Interfaces;
+﻿using Algoritimo.Interfaces;
+using Algoritimo.Utils;
 using System;
 
 namespace Algoritimo
@@ -8,11 +8,9 @@ namespace Algoritimo
     {
         public int posicaoX { get; private set; }
         public int posicaoY { get; private set; }
-
-        private int limiteX;
-        private int limiteY;
-
         public string direcao { get; private set; }
+
+        
 
         public Sonda(string localizacaoInicial, int planaltoX, int planaltoY)
         {
@@ -21,53 +19,19 @@ namespace Algoritimo
             posicaoY = Int32.Parse(str[1]);
             direcao = str[2];
 
-            //TO-DO: fazer verificação tamanho do planalto ao movimentar-se a sonda
-            limiteX = planaltoX;
-            limiteY = planaltoY;
-        }
+            int limiteX = planaltoX;
+            int limiteY = planaltoY;
 
-        public void Girar(string sentido)
-        {
-            switch (direcao)
+            if(limiteX > posicaoX || limiteY > posicaoY)
             {
-                case "N":
-                    direcao = (sentido == "L") ? "W" : "E";
-                    break;
-                case "S":
-                    direcao = (sentido == "L") ? "E" : "W";
-                    break;
-                case "E":
-                    direcao = (sentido == "L") ? "N" : "S";
-                    break;
-                case "W":
-                    direcao = (sentido == "L") ? "S" : "N";
-                    break;
-            }
-        }
-
-        public void Mover()
-        {
-            switch (direcao)
-            {
-                case "N":
-                    posicaoY++;
-                    break;
-                case "S":
-                    posicaoY--;
-                    break;
-                case "E":
-                    posicaoX++;
-                    break;
-                case "W":
-                    posicaoX--;
-                    break;
+                Console.WriteLine(Mensagens.ErroInicioForaDoPlanalto);
+                throw new ApplicationException();
             }
         }
 
         public void ExecutarComando(IGirarComando comando)
         {
             direcao = comando.Executar(direcao);
-
         }
 
         public void ExecutarComando(IMoverComando comando)
@@ -76,22 +40,5 @@ namespace Algoritimo
             posicaoY = posicaoY + comando.Executar(direcao).Item2;
         }
 
-        //public void ExecutarComandos(string strComandos)
-        //{
-        //    char[] comandos = strComandos.ToCharArray();
-
-        //    for (int i = 0; i < comandos.Length; i++)
-        //    {
-
-        //        if (comandos[i] != 'M')
-        //        {
-        //            Girar(comandos[i].ToString());
-        //        }
-        //        else
-        //        {
-        //            Mover();
-        //        }
-        //    }
-        //}
     }
 }
