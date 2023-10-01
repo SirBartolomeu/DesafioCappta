@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Algoritimo.Comandos;
+using System;
 
 namespace Algoritimo
 {
@@ -24,12 +25,61 @@ namespace Algoritimo
             int planaltoY = Int32.Parse(strCoordenadas[1]);
 
             Sonda sonda1 = new Sonda(strPosicao, planaltoX, planaltoY);
-            sonda1.ExecutarComandos(strComandos);
+            //sonda1.ExecutarComandos(strComandos);
+
+            char[] comandos1 = strComandos.ToCharArray();
+
+            for (int i = 0; i < comandos1.Length; i++)
+            {
+
+                if (comandos1[i] != 'M')
+                {
+                    //sonda1.Girar(comandos1[i].ToString());
+                    sonda1.ExecutarComando(new GirarComando(comandos1[i].ToString()));
+                }
+                else
+                {
+                    //sonda1.Mover();
+
+                    sonda1.ExecutarComando(new MoverComando());
+                }
+            }
+
+
+
             Console.WriteLine(sonda1.posicaoX + " " + sonda1.posicaoY + " " + sonda1.direcao);
 
+
+
+
+
+
+
+
+
+
             Sonda sonda2 = new Sonda(strPosicao2, planaltoX, planaltoY);
-            sonda2.ExecutarComandos(strComandos2);
+            //sonda2.ExecutarComandos(strComandos2);
+
+            char[] comandos2 = strComandos2.ToCharArray();
+
+            for (int i = 0; i < comandos2.Length; i++)
+            {
+
+                if (comandos2[i] != 'M')
+                {
+                    ////sonda2.Girar(comandos2[i].ToString());
+                    sonda2.ExecutarComando(new GirarComando(comandos2[i].ToString()));
+                }
+                else
+                {
+                    //sonda2.Mover();
+                    sonda2.ExecutarComando(new MoverComando());
+                }
+            }
+
             Console.WriteLine(sonda2.posicaoX + " " + sonda2.posicaoY + " " + sonda2.direcao);
+
         }
     }
 }

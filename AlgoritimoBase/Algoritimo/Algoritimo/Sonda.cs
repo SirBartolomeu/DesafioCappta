@@ -1,16 +1,18 @@
-﻿using System;
+﻿using Algoritimo.Comandos;
+using Algoritimo.Interfaces;
+using System;
 
 namespace Algoritimo
 {
     public class Sonda
     {
-        public int posicaoX { get; set; }
-        public int posicaoY { get; set; }
+        public int posicaoX { get; private set; }
+        public int posicaoY { get; private set; }
 
         private int limiteX;
         private int limiteY;
 
-        public string direcao;
+        public string direcao { get; private set; }
 
         public Sonda(string localizacaoInicial, int planaltoX, int planaltoY)
         {
@@ -62,22 +64,34 @@ namespace Algoritimo
             }
         }
 
-        public void ExecutarComandos(string strComandos)
+        public void ExecutarComando(IGirarComando comando)
         {
-            char[] comandos = strComandos.ToCharArray();
+            direcao = comando.Executar(direcao);
 
-            for (int i = 0; i < comandos.Length; i++)
-            {
-
-                if (comandos[i] != 'M')
-                {
-                    Girar(comandos[i].ToString());
-                }
-                else
-                {
-                    Mover();
-                }
-            }
         }
+
+        public void ExecutarComando(IMoverComando comando)
+        {
+            posicaoX = posicaoX + comando.Executar(direcao).Item1;
+            posicaoY = posicaoY + comando.Executar(direcao).Item2;
+        }
+
+        //public void ExecutarComandos(string strComandos)
+        //{
+        //    char[] comandos = strComandos.ToCharArray();
+
+        //    for (int i = 0; i < comandos.Length; i++)
+        //    {
+
+        //        if (comandos[i] != 'M')
+        //        {
+        //            Girar(comandos[i].ToString());
+        //        }
+        //        else
+        //        {
+        //            Mover();
+        //        }
+        //    }
+        //}
     }
 }
