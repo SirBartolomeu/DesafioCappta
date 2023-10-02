@@ -23,8 +23,12 @@ Ex:'5 5'.";
 apenas as Letras LRM Ex:'LLMMR'.";
 
         public static string ErroInicioForaDoPlanalto
-            = @"Sua sonda foi mandada para uma posição fora
-do planalto, por favor enviar novamente";
+            = @"Sua sonda foi inicialmente mandada para uma posição
+fora do planalto, por favor enviar novamente";
+
+        public static string ErroMoveuForaDoPlanalto
+    = @"Sua sonda foi movimentada para uma posição
+fora do planalto nas seguintes coordenadas:";
 
 
     }

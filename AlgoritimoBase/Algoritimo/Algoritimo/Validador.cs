@@ -10,20 +10,14 @@ namespace Algoritimo
 {
     public class Validador: IValidador
     {
-
         public string TamanhoPlanalto { get; private set; }
-
         public string Posicao { get; private set; }
-
         public string Comandos { get; private set; }
-
 
         public Validador(string tamanhoPlanalto, string posicao, string comandos)
         {
             TamanhoPlanalto = tamanhoPlanalto;
-
             Posicao = posicao;
-
             Comandos = comandos;
         }
 
@@ -41,7 +35,7 @@ namespace Algoritimo
 
         public bool ValidaPosicaoSonda()
         {
-            Regex rx = new Regex(@"^\d+(\d+)?\s\d+(\d+)?\s\b[wnlsWNLS]?$");
+            Regex rx = new Regex(@"^\d+(\d+)?\s\d+(\d+)?\s\b[wnesWNES]?$");
 
             if (rx.IsMatch(Posicao))
             {

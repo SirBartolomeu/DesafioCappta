@@ -6,38 +6,64 @@ namespace Algoritimo
 {
     public class Sonda
     {
-        public int posicaoX { get; private set; }
-        public int posicaoY { get; private set; }
-        public string direcao { get; private set; }
+        public int PosicaoX { get; private set; }
+        public int PosicaoY { get; private set; }
+        public string Direcao { get; private set; }
+        public int LimiteX { get; set; }
+        public int LimiteY { get; set; }
+        public bool IniciouMovimento { get; set; }
 
-        
 
         public Sonda(string localizacaoInicial, int planaltoX, int planaltoY)
         {
-            string[] str = localizacaoInicial.Split(" ");
-            posicaoX = Int32.Parse(str[0]);
-            posicaoY = Int32.Parse(str[1]);
-            direcao = str[2];
-
-            int limiteX = planaltoX;
-            int limiteY = planaltoY;
-
-            if(limiteX > posicaoX || limiteY > posicaoY)
-            {
-                Console.WriteLine(Mensagens.ErroInicioForaDoPlanalto);
-                throw new ApplicationException();
-            }
+            Pousar(localizacaoInicial);
+            EstabelecerLimites(planaltoX, planaltoY);
+            ChecarPosicao();
         }
 
         public void ExecutarComando(IGirarComando comando)
         {
-            direcao = comando.Executar(direcao);
+            Direcao = comando.Executar(Direcao);
         }
 
         public void ExecutarComando(IMoverComando comando)
         {
-            posicaoX = posicaoX + comando.Executar(direcao).Item1;
-            posicaoY = posicaoY + comando.Executar(direcao).Item2;
+            PosicaoX = PosicaoX + comando.Executar(Direcao).Item1;
+            PosicaoY = PosicaoY + comando.Executar(Direcao).Item2;
+            if(IniciouMovimento == false){
+                IniciouMovimento = true;
+            }
+            ChecarPosicao();
+        }
+
+        private void ChecarPosicao()
+        {
+            if ((LimiteX < PosicaoX || LimiteY < PosicaoY) && !IniciouMovimento)
+            {  
+                Console.WriteLine(Mensagens.ErroInicioForaDoPlanalto);
+                throw new ApplicationException();
+            }
+            if ((LimiteX < PosicaoX || LimiteY < PosicaoY) && IniciouMovimento)
+            {
+                Console.WriteLine(Mensagens.ErroMoveuForaDoPlanalto + PosicaoX + "," + PosicaoY);
+                throw new ApplicationException();
+            }
+        }
+
+        private void Pousar(string localizacaoInicial)
+        {
+            string[] str = localizacaoInicial.Split(" ");
+            PosicaoX = Int32.Parse(str[0]);
+            PosicaoY = Int32.Parse(str[1]);
+            Direcao = str[2];
+            IniciouMovimento = false;
+
+        }
+
+        private void EstabelecerLimites(int planaltoX, int planaltoY)
+        {
+            LimiteX = planaltoX;
+            LimiteY = planaltoY;
         }
 
     }
