@@ -21,7 +21,7 @@ namespace Algoritimo
             Comandos = comandos;
         }
 
-        public bool ValidaPlanalto()
+        public bool ValidarPlanalto()
         {
             Regex rx = new Regex(@"^\d+(\d+)?(\s\d+(\d+)?)$");
 
@@ -33,7 +33,7 @@ namespace Algoritimo
                 return false;
         }
 
-        public bool ValidaPosicaoSonda()
+        public bool ValidarPosicaoSonda()
         {
             Regex rx = new Regex(@"^\d+(\d+)?\s\d+(\d+)?\s\b[wnesWNES]?$");
 
@@ -45,7 +45,7 @@ namespace Algoritimo
                 return false;
         }
 
-        public bool ValidaComandosSonda()
+        public bool ValidarComandosSonda()
         {
             Regex rx = new Regex(@"^[lrmLRM]+$");
 

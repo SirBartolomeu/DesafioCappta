@@ -41,12 +41,12 @@ namespace Algoritimo
             if ((LimiteX < PosicaoX || LimiteY < PosicaoY) && !IniciouMovimento)
             {  
                 Console.WriteLine(Mensagens.ErroInicioForaDoPlanalto);
-                throw new ApplicationException();
+                throw new ApplicationException(Mensagens.ErroInicioForaDoPlanalto);
             }
             if ((LimiteX < PosicaoX || LimiteY < PosicaoY) && IniciouMovimento)
             {
                 Console.WriteLine(Mensagens.ErroMoveuForaDoPlanalto + PosicaoX + "," + PosicaoY);
-                throw new ApplicationException();
+                throw new ApplicationException(Mensagens.ErroMoveuForaDoPlanalto + PosicaoX + "," + PosicaoY);
             }
         }
 

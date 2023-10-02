@@ -9,8 +9,8 @@ namespace Algoritimo.Interfaces
     public interface IValidador
     {
 
-        public bool ValidaPlanalto();
-        public bool ValidaPosicaoSonda();
-        public bool ValidaComandosSonda();
+        public bool ValidarPlanalto();
+        public bool ValidarPosicaoSonda();
+        public bool ValidarComandosSonda();
     }
 }

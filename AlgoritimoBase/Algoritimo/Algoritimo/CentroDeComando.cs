@@ -43,6 +43,7 @@ namespace Algoritimo
 
         private void DefinirPosicoesEComandos()
         {
+
             for (int i = 1; i <= QuantidadeSondas; i++)
             {
                 Console.WriteLine("Insira a posição inicial da sonda n" + i.ToString() + " :");
@@ -64,31 +65,31 @@ namespace Algoritimo
 
         }
 
-        private void Validar(string strPlanalto, string strPosicao, string strComandos)
+        private static void Validar(string strPlanalto, string strPosicao, string strComandos)
         {
             Validador validador = new Validador(strPlanalto, strPosicao, strComandos);
 
-            if (!validador.ValidaPlanalto())
+            if (!validador.ValidarPlanalto())
             {
                 Console.WriteLine(Mensagens.ErroFormatoPlanalto);
                 Console.ReadKey();
-                throw new FormatException();
+                throw new FormatException(Mensagens.ErroFormatoPlanalto);
             }
-            if (!validador.ValidaPosicaoSonda())
+            if (!validador.ValidarPosicaoSonda())
             {
                 Console.WriteLine(Mensagens.ErroFomartoPosicaoSonda);
                 Console.ReadKey();
-                throw new FormatException();
+                throw new FormatException(Mensagens.ErroFomartoPosicaoSonda);
             }
-            if (!validador.ValidaComandosSonda())
+            if (!validador.ValidarComandosSonda())
             {
                 Console.WriteLine(Mensagens.ErroFormatoComandosSonda);
                 Console.ReadKey();
-                throw new FormatException();
+                throw new FormatException(Mensagens.ErroFormatoComandosSonda);
             }
         }
 
-        private void EnviarSonda(string strPosicao, string strComandos, int planaltoX, int planaltoY)
+        private static void EnviarSonda(string strPosicao, string strComandos, int planaltoX, int planaltoY)
         {
             Sonda sonda = new Sonda(strPosicao, planaltoX, planaltoY);
             char[] comandos = strComandos.ToCharArray();
