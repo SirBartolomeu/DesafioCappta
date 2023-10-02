@@ -4,7 +4,7 @@ using System;
 
 namespace Algoritimo
 {
-    public class Sonda
+    public class Sonda : ISonda
     {
         public int PosicaoX { get; private set; }
         public int PosicaoY { get; private set; }
@@ -36,10 +36,20 @@ namespace Algoritimo
             ChecarPosicao();
         }
 
+        public void Pousar(string localizacaoInicial)
+        {
+            string[] str = localizacaoInicial.Split(" ");
+            PosicaoX = Int32.Parse(str[0]);
+            PosicaoY = Int32.Parse(str[1]);
+            Direcao = str[2];
+            IniciouMovimento = false;
+
+        }
+
         private void ChecarPosicao()
         {
             if ((LimiteX < PosicaoX || LimiteY < PosicaoY) && !IniciouMovimento)
-            {  
+            {
                 Console.WriteLine(Mensagens.ErroInicioForaDoPlanalto);
                 throw new ApplicationException(Mensagens.ErroInicioForaDoPlanalto);
             }
@@ -48,16 +58,6 @@ namespace Algoritimo
                 Console.WriteLine(Mensagens.ErroMoveuForaDoPlanalto + PosicaoX + "," + PosicaoY);
                 throw new ApplicationException(Mensagens.ErroMoveuForaDoPlanalto + PosicaoX + "," + PosicaoY);
             }
-        }
-
-        private void Pousar(string localizacaoInicial)
-        {
-            string[] str = localizacaoInicial.Split(" ");
-            PosicaoX = Int32.Parse(str[0]);
-            PosicaoY = Int32.Parse(str[1]);
-            Direcao = str[2];
-            IniciouMovimento = false;
-
         }
 
         private void EstabelecerLimites(int planaltoX, int planaltoY)

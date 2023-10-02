@@ -10,7 +10,7 @@ using Algoritimo.Utils;
 
 namespace Algoritimo
 {
-    public class CentroDeComando
+    public class CentroDeComando : ICentroDeComando
     {
         private string StrPlanalto { get; set; }
         private int PlanaltoX { get; set; }
@@ -26,7 +26,7 @@ namespace Algoritimo
         }
 
 
-        private void DefinirQuantidadeDeSondas()
+        public void DefinirQuantidadeDeSondas()
         {
             Console.WriteLine("Quantas sondas deseja enviar?");
             try
@@ -41,7 +41,7 @@ namespace Algoritimo
 
         }
 
-        private void DefinirPosicoesEComandos()
+        public void DefinirPosicoesEComandos()
         {
 
             for (int i = 1; i <= QuantidadeSondas; i++)
@@ -55,41 +55,27 @@ namespace Algoritimo
 
         }
 
-        private void DefinirPlanalto()
+        public void DefinirPlanalto()
         {
             Console.WriteLine("Insira o tamanho do planalto:");
             StrPlanalto = Console.ReadLine();
             string[] strCoordenadas = StrPlanalto.Split(" ");
-            PlanaltoX = Int32.Parse(strCoordenadas[0]);
-            PlanaltoY = Int32.Parse(strCoordenadas[1]);
-
-        }
-
-        private static void Validar(string strPlanalto, string strPosicao, string strComandos)
-        {
-            Validador validador = new Validador(strPlanalto, strPosicao, strComandos);
-
-            if (!validador.ValidarPlanalto())
+            try 
+            {
+                PlanaltoX = Int32.Parse(strCoordenadas[0]);
+                PlanaltoY = Int32.Parse(strCoordenadas[1]);
+            }
+            catch
             {
                 Console.WriteLine(Mensagens.ErroFormatoPlanalto);
                 Console.ReadKey();
                 throw new FormatException(Mensagens.ErroFormatoPlanalto);
             }
-            if (!validador.ValidarPosicaoSonda())
-            {
-                Console.WriteLine(Mensagens.ErroFomartoPosicaoSonda);
-                Console.ReadKey();
-                throw new FormatException(Mensagens.ErroFomartoPosicaoSonda);
-            }
-            if (!validador.ValidarComandosSonda())
-            {
-                Console.WriteLine(Mensagens.ErroFormatoComandosSonda);
-                Console.ReadKey();
-                throw new FormatException(Mensagens.ErroFormatoComandosSonda);
-            }
+
+
         }
 
-        private static void EnviarSonda(string strPosicao, string strComandos, int planaltoX, int planaltoY)
+        public void EnviarSonda(string strPosicao, string strComandos, int planaltoX, int planaltoY)
         {
             Sonda sonda = new Sonda(strPosicao, planaltoX, planaltoY);
             char[] comandos = strComandos.ToCharArray();
@@ -108,7 +94,7 @@ namespace Algoritimo
             Console.WriteLine(sonda.PosicaoX + " " + sonda.PosicaoY + " " + sonda.Direcao);
         }
 
-        public void IniciarExploração()
+        public void IniciarExploracao()
         {
             for (int i = 0; i < Inputs.Count; i++)
             {
@@ -119,6 +105,16 @@ namespace Algoritimo
                 i++;
 
             }
+        }
+
+        private static void Validar(string strPlanalto, string strPosicao, string strComandos)
+        {
+            Validador validador = new Validador(strPlanalto, strPosicao, strComandos);
+
+            validador.ValidarPlanalto();
+            validador.ValidarPosicaoSonda();
+            validador.ValidarComandosSonda();
+
         }
     }
 }

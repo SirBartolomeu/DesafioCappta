@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using Algoritimo.Interfaces;
+using Algoritimo.Utils;
 
 namespace Algoritimo
 {
@@ -21,40 +22,40 @@ namespace Algoritimo
             Comandos = comandos;
         }
 
-        public bool ValidarPlanalto()
+        public void ValidarPlanalto()
         {
             Regex rx = new Regex(@"^\d+(\d+)?(\s\d+(\d+)?)$");
 
-            if (rx.IsMatch(TamanhoPlanalto))
+            if (!(rx.IsMatch(TamanhoPlanalto)))
             {
-                return true;
+                Console.WriteLine(Mensagens.ErroFormatoPlanalto);
+                Console.ReadKey();
+                throw new FormatException(Mensagens.ErroFormatoPlanalto);
             }
-
-                return false;
         }
 
-        public bool ValidarPosicaoSonda()
+        public void ValidarPosicaoSonda()
         {
             Regex rx = new Regex(@"^\d+(\d+)?\s\d+(\d+)?\s\b[wnesWNES]?$");
 
-            if (rx.IsMatch(Posicao))
+            if (!(rx.IsMatch(Posicao)))
             {
-                return true;
+                Console.WriteLine(Mensagens.ErroFomartoPosicaoSonda);
+                Console.ReadKey();
+                throw new FormatException(Mensagens.ErroFomartoPosicaoSonda);
             }
-
-                return false;
         }
 
-        public bool ValidarComandosSonda()
+        public void ValidarComandosSonda()
         {
             Regex rx = new Regex(@"^[lrmLRM]+$");
 
-            if (rx.IsMatch(Comandos))
+            if (!(rx.IsMatch(Comandos)))
             {
-                return true;
+                Console.WriteLine(Mensagens.ErroFormatoComandosSonda);
+                Console.ReadKey();
+                throw new FormatException(Mensagens.ErroFormatoComandosSonda);
             }
-
-                return false;
         }
     }
 }

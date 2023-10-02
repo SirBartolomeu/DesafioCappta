@@ -10,9 +10,6 @@ namespace Algoritimo
     {
         static void Main(string[] args)
         {
-            //TO-DO: Adicionar Estado(cod e msg) para comandos
-            //TO-DO: Escrever  Testes
-            //TO-DO: Escrever Diagrama de classes
             #region Exemplo de Inputs
             //string strPlanalto; = "5 5";
             //string strPosicao1 = "1 2 N";
@@ -22,7 +19,7 @@ namespace Algoritimo
             #endregion
 
             CentroDeComando centroDeComando = new CentroDeComando();
-            centroDeComando.IniciarExploração();
+            centroDeComando.IniciarExploracao();
 
         }
     }

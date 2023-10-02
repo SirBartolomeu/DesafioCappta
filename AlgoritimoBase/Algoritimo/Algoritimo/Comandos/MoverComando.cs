@@ -14,7 +14,9 @@ namespace Algoritimo.Comandos
         public int PosicaoY { get; private set; }
 
         public MoverComando()
-        {}
+        {
+        
+        }
 
         public Tuple<int, int> Executar(string direcao)
         {
