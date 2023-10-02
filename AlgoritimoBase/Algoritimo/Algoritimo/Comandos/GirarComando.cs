@@ -32,6 +32,8 @@ namespace Algoritimo.Comandos
                 case "W":
                     direcao = (Sentido == "L") ? "S" : "N";
                     break;
+                default:
+                    throw new FormatException("Formato Incorreto");
             }
 
             return direcao;

@@ -37,6 +37,8 @@ namespace Algoritimo.Comandos
                 case "W":
                     PosicaoX--;
                     break;
+                default:
+                    throw new FormatException("Formato Incorreto");
             }
 
             return Tuple.Create(PosicaoX, PosicaoY);

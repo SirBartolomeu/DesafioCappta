@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PC\\Desktop\\Desafio-Cappta\\DesafioCappta\\AlgoritimoBase\\Algoritimo\\Algoritimo\\Algoritimo.csproj",
+      "projectUniqueName": "C:\\Users\\PC\\Desktop\\DesafioCappta\\DesafioCappta\\AlgoritimoBase\\Algoritimo\\Algoritimo\\Algoritimo.csproj",
       "projectName": "Algoritimo",
-      "projectPath": "C:\\Users\\PC\\Desktop\\Desafio-Cappta\\DesafioCappta\\AlgoritimoBase\\Algoritimo\\Algoritimo\\Algoritimo.csproj",
+      "projectPath": "C:\\Users\\PC\\Desktop\\DesafioCappta\\DesafioCappta\\AlgoritimoBase\\Algoritimo\\Algoritimo\\Algoritimo.csproj",
       "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PC\\Desktop\\Desafio-Cappta\\DesafioCappta\\AlgoritimoBase\\Algoritimo\\Algoritimo\\obj\\",
+      "outputPath": "C:\\Users\\PC\\Desktop\\DesafioCappta\\DesafioCappta\\AlgoritimoBase\\Algoritimo\\Algoritimo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
